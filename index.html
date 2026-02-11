@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunknowledge | Independent Sales Partner Program (1099)</title>
+  <meta name="description" content="Earn 10% lifetime commission on gross revenue for every healthcare RCM client you refer or close. No joining fees. Free training & support." />
+
+  <!-- Optional: performance-friendly font (swap to your brand font if you have one) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       Base / Reset
+       ========================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html:focus-within { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.5;
+      color: #0b1220;
+      background: #ffffff;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    /* =========================
+       Brand Tokens (healthcare/enterprise palette)
+       ========================= */
+    :root{
+      --max: 1120px;
+      --pad: 24px;
+      --radius: 18px;
+      --radius-sm: 14px;
+      --shadow: 0 14px 35px rgba(2, 8, 23, .10);
+      --shadow-soft: 0 10px 24px rgba(2, 8, 23, .08);
+      --border: 1px solid rgba(15, 23, 42, .12);
+
+      --navy: #0b1b3a;
+      --navy-2: #0a1530;
+      --teal: #0ea5a4;
+      --teal-2: #14b8a6;
+      --sky: #38bdf8;
+      --amber: #f59e0b;
+
+      --bg: #ffffff;
+      --bg-muted: #f6f8fc;
+      --bg-muted-2: #eef3fb;
+      --bg-dark: #071124;
+      --text: #0b1220;
+      --text-muted: rgba(11,18,32,.72);
+      --text-invert: #ffffff;
+
+      /* Buttons */
+      --btn-bg: linear-gradient(135deg, var(--teal) 0%, var(--sky) 100%);
+      --btn-fg: #041018;
+      --btn-bg-hover: linear-gradient(135deg, var(--teal-2) 0%, #60a5fa 100%);
+
+      /* Focus */
+      --focus: 3px solid rgba(56, 189, 248, .45);
+    }
+
+    .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .section { padding: 72px 0; }
+    .section--tight { padding: 44px 0; }
+    .section--muted { background: var(--bg-muted); }
+    .section--dark {
+      background:
+        radial-gradient(1200px 500px at 10% 10%, rgba(56,189,248,.20), transparent 60%),
+        radial-gradient(800px 400px at 90% 20%, rgba(20,184,166,.18), transparent 55%),
+        var(--bg-dark);
+      color: var(--text-invert);
+    }
+    .stack > * + * { margin-top: 16px; }
+
+    .grid { display: grid; gap: 24px; }
+    .grid-2 { grid-template-columns: 1.2fr .8fr; }
+    .grid-2-even { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .card {
+      background: #fff;
+      border: var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .card--flat { box-shadow: none; }
+    .card--dark {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: #fff;
+      box-shadow: none;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.12; }
+    h1 { font-size: clamp(34px, 4.2vw, 52px); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(24px, 2.7vw, 36px); letter-spacing: -0.02em; }
+    h3 { font-size: 18px; }
+
+    p { margin: 0; color: var(--text-muted); }
+    .section--dark p { color: rgba(255,255,255,.82); }
+
+    .kicker {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .10em;
+      font-size: 12px;
+      color: rgba(11,18,32,.62);
+    }
+    .section--dark .kicker { color: rgba(255,255,255,.75); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(7, 17, 36, .55);
+      backdrop-filter: blur(8px);
+      font-weight: 700;
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 0;
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 10px 24px rgba(14,165,164,.22);
+    }
+    .btn:hover { background: var(--btn-bg-hover); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0px); }
+    .btn:focus-visible { outline: var(--focus); outline-offset: 2px; }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid rgba(11,27,58,.22);
+      box-shadow: none;
+    }
+    .btn--ghost:hover { background: rgba(14,165,164,.08); transform: none; }
+    .section--dark .btn--ghost { color: #fff; border: 1px solid rgba(255,255,255,.22); }
+
+    .muted { color: var(--text-muted); font-size: 14px; }
+    .section--dark .muted { color: rgba(255,255,255,.72); }
+
+    .list { padding-left: 18px; margin: 0; }
+    .list li { margin: 9px 0; color: var(--text-muted); }
+    .section--dark .list li { color: rgba(255,255,255,.84); }
+
+    /* =========================
+       Top Authority Strip
+       ========================= */
+    .top-strip {
+      position: sticky;
+      top: 0;
+      z-index: 998;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--navy-2) 45%, #071124 100%);
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .top-strip__inner {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px var(--pad);
+      max-width: var(--max);
+      margin: 0 auto;
+      font-size: 13px;
+    }
+    .top-strip__left { display: flex; flex-wrap: wrap; gap: 10px; opacity: .92; }
+    .top-strip__right { font-weight: 800; opacity: .95; display:flex; gap:10px; align-items:center; }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: radial-gradient(circle at 30% 30%, var(--sky), var(--teal));
+      box-shadow: 0 0 0 6px rgba(56,189,248,.12);
+    }
+
+    /* =========================
+       Hero
+       ========================= */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(900px 420px at 10% 20%, rgba(56,189,248,.22), transparent 60%),
+        radial-gradient(900px 420px at 90% 10%, rgba(14,165,164,.20), transparent 55%),
+        linear-gradient(180deg, rgba(246,248,252,1) 0%, rgba(255,255,255,1) 65%);
+    }
+
+    .hero::before{
+      content: "";
+      position: absolute;
+      inset: -100px -100px auto -100px;
+      height: 240px;
+      background: linear-gradient(90deg, rgba(14,165,164,.08), rgba(56,189,248,.08));
+      transform: rotate(-2deg);
+      pointer-events: none;
+    }
+
+    .hero-wrap { position: relative; }
+
+    .brandmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,27,58,.12);
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(6px);
+      font-weight: 800;
+      color: var(--navy);
+      width: fit-content;
+    }
+
+    /* =========================
+       Hero Media (image + overlay)
+       ========================= */
+    .media {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(11,27,58,.14);
+      min-height: 420px;
+      position: relative;
+      box-shadow: var(--shadow-soft);
+      background: #0b1b3a;
+    }
+
+    .media__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.02);
+      transform: scale(1.02);
+    }
+
+    .media::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,17,36,.10) 0%, rgba(7,17,36,.55) 75%, rgba(7,17,36,.80) 100%);
+    }
+
+    .media__overlay {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .media__cta {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 2;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content: space-between;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(7, 17, 36, .55);
+      backdrop-filter: blur(10px);
+      padding: 14px 14px;
+    }
+
+    .media__cta strong { color: #fff; }
+
+    /* =========================
+       Proof strip
+       ========================= */
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .proof-pill {
+      padding: 14px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,27,58,.12);
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(6px);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* =========================
+       Icon tiles
+       ========================= */
+    .icon-tile {
+      border: 1px solid rgba(11,27,58,.12);
+      border-radius: 16px;
+      background: #fff;
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      box-shadow: 0 10px 24px rgba(2,8,23,.06);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(14,165,164,.22);
+      background: linear-gradient(135deg, rgba(14,165,164,.14), rgba(56,189,248,.14));
+      flex: 0 0 auto;
+      display:grid;
+      place-items:center;
+    }
+
+    .icon svg { width: 22px; height: 22px; stroke: var(--navy); }
+
+    .icon-tile p { font-size: 14px; }
+
+    /* =========================
+       Pills (buyers)
+       ========================= */
+    .pill-row { display:flex; gap:10px; flex-wrap: wrap; }
+    .pill {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,27,58,.12);
+      background: rgba(255,255,255,.70);
+      backdrop-filter: blur(6px);
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 13px;
+    }
+    .pill svg { width: 16px; height: 16px; stroke: var(--teal); }
+
+    /* =========================
+       Service cards
+       ========================= */
+    .service-card{
+      border: 1px solid rgba(11,27,58,.12);
+      border-radius: 16px;
+      background: #fff;
+      padding: 16px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      box-shadow: 0 10px 24px rgba(2,8,23,.06);
+    }
+    .service-card strong{ color: var(--navy); letter-spacing: .02em; }
+    .service-card .icon{ width: 40px; height: 40px; border-radius: 14px; }
+
+    /* =========================
+       Split Qualification
+       ========================= */
+    .split {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(11,27,58,.12);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .split__pane { padding: 26px; }
+    .split__pane--good { background: #fff; }
+    .split__pane--bad { background: linear-gradient(180deg, rgba(245,158,11,.08), rgba(246,248,252,1)); }
+
+    /* =========================
+       Timeline
+       ========================= */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .step {
+      border: 1px solid rgba(11,27,58,.12);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(2,8,23,.06);
+    }
+    .step__top{ display:flex; gap:12px; align-items:center; }
+    .step__num {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      border: 1px solid rgba(14,165,164,.22);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      background: linear-gradient(135deg, rgba(14,165,164,.14), rgba(56,189,248,.14));
+      color: var(--navy);
+      flex: 0 0 auto;
+    }
+    .step__icon{
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      border: 1px solid rgba(11,27,58,.10);
+      background: var(--bg-muted);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+    }
+    .step__icon svg{ width: 18px; height: 18px; stroke: var(--navy); }
+    .step p { font-size: 14px; }
+
+    /* =========================
+       FAQ (details/summary)
+       ========================= */
+    details {
+      border: 1px solid rgba(11,27,58,.12);
+      border-radius: 16px;
+      background: #fff;
+      padding: 14px 16px;
+      box-shadow: 0 10px 24px rgba(2,8,23,.05);
+    }
+    summary { cursor: pointer; font-weight: 900; list-style: none; color: var(--navy); }
+    summary::-webkit-details-marker { display: none; }
+    details p { margin-top: 10px; font-size: 14px; }
+
+    /* =========================
+       Form
+       ========================= */
+    .form-grid { display: grid; gap: 14px; }
+    label { font-size: 13px; font-weight: 800; display: block; margin-bottom: 6px; color: var(--navy); }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(11,27,58,.14);
+      background: #fff;
+      font: inherit;
+    }
+    input:focus-visible, select:focus-visible, textarea:focus-visible { outline: var(--focus); outline-offset: 2px; }
+    .form-row { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+
+    /* =========================
+       Footer
+       ========================= */
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(11,27,58,.12);
+      background: #fff;
+    }
+    .footer-inner {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* =========================
+       Sticky CTA (mobile)
+       ========================= */
+    .sticky-cta {
+      position: fixed;
+      inset: auto 0 0 0;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(11,27,58,.12);
+      padding: 10px var(--pad);
+      display: none;
+      z-index: 999;
+    }
+    .sticky-cta__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* =========================
+       Responsive
+       ========================= */
+    @media (max-width: 980px){
+      .grid-2, .grid-2-even { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .proof-strip { grid-template-columns: repeat(2, 1fr); }
+      .timeline { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .media { min-height: 360px; }
+    }
+    @media (max-width: 720px){
+      .section { padding: 48px 0; }
+      .sticky-cta { display: block; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      * { scroll-behavior: auto !important; }
+      .btn:hover { transform: none; }
+      .btn:active { transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOP AUTHORITY STRIP (sticky) -->
+  <div class="top-strip" role="banner">
+    <div class="top-strip__inner">
+      <div class="top-strip__left" aria-label="Authority highlights">
+        <span>Uncapped,</span>
+        <span>Monthly-recurring,</span>
+        <span>Lifelong commissions</span>
+      </div>
+      <div class="top-strip__right">
+        <span class="dot" aria-hidden="true"></span>
+        Independent 1099 Opportunity
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="section hero" aria-label="Hero">
+    <div class="container hero-wrap">
+      <div class="grid grid-2" style="align-items:center;">
+
+        <div class="stack">
+          <div class="brandmark" aria-label="Brand">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Independent Sales Partner Program
+          </div>
+
+          <div class="kicker">The Opportunity</div>
+          <h1>Sell Revenue Cycle Services to Healthcare Providers - Earn 10% monthly-recurring commissions for life</h1>
+          <p>
+            Turn Your Healthcare Network Into Recurring Revenue. Join Sun Knowledge as a 1099 independent partner. If you know providers who want to outsource end-to-end revenue cycle management (RCM), or functions of RCM or improve revenue cycle outcomes, you can monetize those relationships.
+
+Whether you actively close deals with prospects yourself or just refer introductions and we close the deals, you’ll earn 10% of gross revenue every month for as long as the client remains engaged with Sun Knowledge. 
+          </p>
+
+          <div class="pill-row" aria-label="Key benefits">
+            <span class="pill">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              10% on Gross Revenue
+            </span>
+            <span class="pill">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg>
+              Lifetime Monthly-Recurring Payouts
+            </span>
+            <span class="pill">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21H3" stroke-width="2" stroke-linecap="round"/></svg>
+              Uncapped Commissions
+            </span>
+            <span class="pill">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22" stroke-width="2" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 000 7H14a3.5 3.5 0 010 7H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              No Joining Fees / No Target Pressure
+            </span>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 10px;">
+            <a class="btn" href="#apply" aria-label="Apply">Apply to Become a Sales Partner</a>
+            <a class="btn btn--ghost" href="#faq">View FAQs</a>
+          </div>
+        </div>
+
+        <div class="media" aria-label="Hero media">
+          <img
+            class="media__img"
+            alt="Healthcare operations and revenue cycle professionals"
+            src="https://images.unsplash.com/photo-1580281658223-9b93f18ae9ae?auto=format&fit=crop&w=1400&q=80"
+          />
+
+          <div class="media__overlay">
+            <span class="badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Top Partner: ~$1.2M annually (10+ years)
+            </span>
+            <span class="badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Paid monthly on gross revenue
+            </span>
+          </div>
+
+          <div class="media__cta" aria-label="Hero callout">
+            <div>
+              <strong>Referral partner or closer — both qualify.</strong>
+              <div class="muted" style="color: rgba(255,255,255,.78);">You refer or close. We fulfill. You earn recurring commission.</div>
+            </div>
+            <a class="btn" href="#apply" style="min-height:46px; padding: 10px 14px;">Apply</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- OPPORTUNITY -->
+
+
+  <!-- SERVICES TO SELL (NEW) -->
+  <section class="section section--muted" id="services" aria-label="Services you can sell">
+    <div class="container">
+      <div class="stack" style="max-width: 860px;">
+        <div class="kicker">What to Sell</div>
+        <h2>Full-Spectrum RCM + Clinical Support Services</h2>
+        <p>Sell what providers need most: revenue capture, clean claims, and operational lift — plus staffing support.</p>
+      </div>
+
+      <div class="grid grid-3" style="margin-top: 28px;">
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><strong>PRIOR AUTHORIZATION</strong></div></div>
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22" stroke-width="2" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 000 7H14a3.5 3.5 0 010 7H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><strong>MEDICAL BILLING</strong></div></div>
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" stroke-width="2" stroke-linecap="round"/><path d="M9 11a4 4 0 100-8 4 4 0 000 8z" stroke-width="2"/></svg></div><div><strong>PATIENT INTAKE</strong></div></div>
+
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg></div><div><strong>ELIGIBILITY VERIFICATION</strong></div></div>
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke-width="2"/><path d="M14 2v6h6" stroke-width="2"/><path d="M8 13h8M8 17h6" stroke-width="2" stroke-linecap="round"/></svg></div><div><strong>CHARGE ENTRY</strong></div></div>
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke-width="2" stroke-linecap="round"/><path d="M12 3v18" stroke-width="2" stroke-linecap="round"/></svg></div><div><strong>MEDICAL CODING</strong></div></div>
+
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21H3" stroke-width="2" stroke-linecap="round"/></svg></div><div><strong>CLAIMS MANAGEMENT</strong></div></div>
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-7-10a4 4 0 017-2 4 4 0 017 2c0 5.6-7 10-7 10z" stroke-width="2"/></svg></div><div><strong>CLINICAL DOCUMENTATION</strong></div></div>
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" stroke-width="2"/><path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z" stroke-width="2"/></svg></div><div><strong>ACCOUNTS RECEIVABLE</strong></div></div>
+
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6" stroke-width="2" stroke-linecap="round"/><path d="M6 6l12 12" stroke-width="2" stroke-linecap="round"/></svg></div><div><strong>DENIAL MANAGEMENT</strong></div></div>
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" stroke-width="2" stroke-linecap="round"/><path d="M9 11a4 4 0 100-8 4 4 0 000 8z" stroke-width="2"/>
+          <path d="M22 21v-2a4 4 0 00-3-3.87" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 3.13a4 4 0 010 7.75" stroke-width="2" stroke-linecap="round"/>
+        </svg></div><div><strong>VIRTUAL ASSISTANTS</strong></div></div>
+        <div class="service-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a7 7 0 00-7 7v4a3 3 0 003 3h8a3 3 0 003-3v-4a7 7 0 00-7-7z" stroke-width="2"/><path d="M8 21h8" stroke-width="2" stroke-linecap="round"/></svg></div><div><strong>VIRTUAL MEDICAL SCRIBES</strong></div></div>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <a class="btn" href="#apply">Apply to Sell These Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHOM WE SELL TO (NEW) -->
+  <section class="section" id="whom" aria-label="Whom we sell to">
+    <div class="container">
+      <div class="stack" style="max-width: 860px;">
+        <div class="kicker">Whom To Sell To</div>
+        <h2>Healthcare Organizations of All Sizes</h2>
+        <p>From solo practices to enterprise systems across the nation — your network can include any of the categories below.</p>
+      </div>
+
+      <div class="pill-row" style="margin-top: 18px;">
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>All Healthcare Providers (40+ specialties)</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Durable / Home Medical Equipment companies</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Solo Practices</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Physician Groups</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Labs</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Hospitals (all sizes)</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Health Systems</span>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <a class="btn" href="#apply">Apply to Become a Partner</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPENSATION -->
+  <section class="section section--muted" id="compensation" aria-label="Compensation">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:start;">
+        <div class="card">
+          <div class="kicker">Income Example</div>
+          <h2 style="margin-top:8px;">Transparent, Performance-Based Compensation</h2>
+          <p style="margin-top:10px;">There's absolutely no cap on the number of providers you bring in. The commission keeps flowing in MONTHLY as long as the client remains engaged. 
+          </br>Example scenario (illustrative): Assuming your referral is successfully onboarded with 25 FTE's at $1,000/month/FTE</p>
+
+          <div class="card card--flat" style="margin-top: 14px; background: linear-gradient(135deg, rgba(14,165,164,.12), rgba(56,189,248,.10)); border: 1px solid rgba(11,27,58,.10);">
+            <h3>$25,000 / month bill to client </h3> 
+            <p><strong>= $2,500 / month</strong> commission (10% gross)</p>
+            <p><strong>= $30,000 / year</strong> (sum of monthly-recurring commissions over a year, for just one successful referral)</p>
+            <p><strong>The best part - You just enjoy the recurring monthly lifelong commissions. Sun Knowledge closes the sale, onboards clients, and manages daily operations.</p>
+          </div>
+
+          <p class="muted" style="margin-top: 12px;">
+          
+          </p>
+        </div>
+
+        <div class="stack">
+          <h3>Commission Rules</h3>
+          <ul class="list">
+            <li>10% commission on <strong>gross revenue</strong></li>
+            <li>Commissions last for the <strong>lifetime</strong> of the client relationship</li>
+            <li>Commission increases when client <strong>expands scope</strong></li>
+            <li>No minimum client size threshold</li>
+            <li>Referral-only and closer partners both qualify</li>
+          </ul>
+
+          <a class="btn" href="#apply">Apply to Become a Partner</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SUNKNOWLEDGE -->
+  <section class="section" id="why" aria-label="Why Sunknowledge">
+    <div class="container">
+      <div class="stack" style="max-width: 860px;">
+        <div class="kicker">Why Providers Prefer working with Sun Knowledge</div>
+        <h2>A Trusted RCM Partner You Can Confidently Recommend</h2>
+        <p>
+          Strong fulfillment and delivery support makes your referrals easier to win — and easier to retain for lifetime earnings.
+        </p>
+      </div>
+
+      <div class="grid grid-4" style="margin-top: 28px;">
+        <div class="icon-tile"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>99% Accuracy, 97% First-Pass Rate</h3><p>High-quality billing &amp; strong clean-claim performance.</p></div></div>
+        <div class="icon-tile"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg></div><div><h3>Dedicated Team with Buffer Resources</h3><p> 10% buffer resources with Dedicated non-shared FTE's and Account Manager.</p></div></div>
+        <div class="icon-tile"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2z" stroke-width="2"/></svg></div><div><h3>Seamless Onboarding & Operations </h3><p>Agile operational framework and enables prompt onboarding and smooth operations</p></div></div>
+        <div class="icon-tile"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" stroke-width="2" stroke-linecap="round"/><path d="M9 11a4 4 0 100-8 4 4 0 000 8z" stroke-width="2"/>
+          <path d="M22 21v-2a4 4 0 00-3-3.87" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 3.13a4 4 0 010 7.75" stroke-width="2" stroke-linecap="round"/>
+        </svg></div><div><h3>Existing Client References</h3><p>We provide existing client referrals that speaks volumes about our service excellence to help close deals faster </p></div></div>
+        <div class="icon-tile"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-7-10a4 4 0 017-2 4 4 0 017 2c0 5.6-7 10-7 10z" stroke-width="2"/></svg></div><div><h3>EHR/EMR & Specialty agnostic</h3><p>We work on all EHR/EMR and serve all specialties - DME, Retina, Sleep Labs, Radiology, GI, and more.</p></div></div>
+        <div class="icon-tile"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22" stroke-width="2" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 000 7H14a3.5 3.5 0 010 7H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Reduced staffing costs & expenses</h3><p>Outsourcing framework eliminated in-house staffing costs and related uncertainties & expenses.</p></div></div>
+        <div class="icon-tile"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6" stroke-width="2" stroke-linecap="round"/><path d="M6 6l12 12" stroke-width="2" stroke-linecap="round"/></svg></div><div><h3>No Binding Contracts</h3><p>A major USP! Our 30-day exit policy has proven to be provider-friendly. We learnt, happy clients stick much longer if not pressurized to.</p></div></div>
+        <div class="icon-tile"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke-width="2" stroke-linecap="round"/><path d="M12 3v18" stroke-width="2" stroke-linecap="round"/></svg></div><div><h3>19+ Years of Service Excellence</h3><p>Our longest client association has been for 17 years (still active) with and average tenure of 4.5 years</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section section--muted" id="who" aria-label="Who this is for">
+    <div class="container">
+      <div class="kicker">Who It’s For</div>
+      <h2>Who This Program Is For</h2>
+      <p style="margin-top:8px; max-width: 860px;">
+        Whether you're a referral-only partners or an active closer, if you have relationships with healthcare providers
+        or decision makers, you can build uncapped monthly-recurring lifelong income through retained client revenue.
+      </p>
+
+      <div class="split" style="margin-top: 20px;">
+        <div class="split__pane split__pane--good">
+          <h3>Ideal Partners</h3>
+          <ul class="list">
+            <li>Healthcare consultants and advisors</li>
+            <li>Medical sales professionals</li>
+            <li>Billing / RCM industry veterans</li>
+            <li>Practice management and operations consultants</li>
+            <li>Industry connectors with provider networks</li>
+            <li>Billing / RCM companies looking to reduce operational costs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- EARNINGS PROOF -->
+  <section class="section section--dark" aria-label="Earnings proof">
+    <div class="container">
+      <div class="grid grid-2-even" style="align-items:center;">
+        <div class="stack">
+          <div class="kicker">Proof of scalability</div>
+          <h2>Top partners build seven-figure recurring income streams</h2>
+          <p>
+            One top independent partner has earned <strong>~$100,000 per month (~$1.2M annually) for 10+ years</strong>.
+            This program is designed for long-term retention and compounding monthly payouts.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn" href="#apply">Schedule Your Qualification Call</a>
+            <a class="btn btn--ghost" href="#faq">See FAQs</a>
+          </div>
+          <p class="muted">Earnings vary. Performance depends on pipeline, conversion, and client retention.</p>
+        </div>
+
+        <div class="card card--dark">
+          <h3>What we provide</h3>
+          <ul class="list">
+            <li>Free training &amp; enablement</li>
+            <li>Proposal support and sales materials</li>
+            <li>Account managers and onboarding</li>
+            <li>Operational fulfillment &amp; delivery</li>
+            <li>Transparent commission reporting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how" aria-label="How it works">
+    <div class="container">
+      <div class="stack" style="max-width: 860px;">
+        <div class="kicker">Kickstart your Revenue Stream</div>
+        <h2>Next Steps</h2>
+        <p>Low-friction onboarding. Fast start. Clear monthly payouts.</p>
+      </div>
+
+      <div class="timeline" style="margin-top: 22px;">
+        <div class="step"><div class="step__top"><div class="step__num">1</div><div class="step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke-width="2"/><path d="M8 2v4M16 2v4" stroke-width="2" stroke-linecap="round"/><path d="M4 10h16" stroke-width="2"/></svg></div></div><h3 style="margin-top: 10px;">Apply Online</h3><p>Submit a short application to confirm fit.</p></div>
+        <div class="step"><div class="step__top"><div class="step__num">2</div><div class="step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92V19a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 010 1.18 2 2 0 012 0h2.08a2 2 0 012 1.72c.12.86.3 1.7.54 2.5a2 2 0 01-.45 2.11L5.2 7.8a16 16 0 006.99 6.99l1.47-1.47a2 2 0 012.11-.45c.8.24 1.64.42 2.5.54A2 2 0 0122 16.92z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><h3 style="margin-top: 10px;">Qualification Call</h3><p>Quick call to align on your network and approach.</p></div>
+        <div class="step"><div class="step__top"><div class="step__num">3</div><div class="step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke-width="2"/><path d="M14 2v6h6" stroke-width="2"/><path d="M8 13h8M8 17h6" stroke-width="2" stroke-linecap="round"/></svg></div></div><h3 style="margin-top: 10px;">Agreement</h3><p>Sign the independent partner agreement.</p></div>
+        <div class="step"><div class="step__top"><div class="step__num">4</div><div class="step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 20l9-5-9-5-9 5 9 5z" stroke-width="2"/><path d="M12 12l9-5-9-5-9 5 9 5z" stroke-width="2" opacity=".8"/></svg></div></div><h3 style="margin-top: 10px;">Enablement</h3><p>Receive materials, training, and proposal support.</p></div>
+        <div class="step"><div class="step__top"><div class="step__num">5</div><div class="step__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21H3" stroke-width="2" stroke-linecap="round"/></svg></div></div><h3 style="margin-top: 10px;">Start Earning</h3><p>Refer or close accounts and earn recurring commission.</p></div>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <a class="btn" href="#apply">Apply Now</a>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <!-- FAQ -->
+  <section class="section section--muted" id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="kicker">FAQs</div>
+      <h2>Frequently Asked Questions</h2>
+      <div class="grid" style="margin-top: 16px; max-width: 860px;">
+        <details><summary>Is the commission fixed?</summary><p>Yes. You earn 10% of gross revenue across all services.</p></details>
+        <details><summary>What happens if the client increases scope?</summary><p>Your commission increases as the client’s gross revenue increases.</p></details>
+        <details><summary>How long do commissions last?</summary><p>For the lifetime of the client relationship — as long as the client remains engaged with us.</p></details>
+        <details><summary>Is there a minimum client size threshold?</summary><p>No. Any client size qualifies.</p></details>
+        <details><summary>Is this exclusive?</summary><p>No. This is a non-exclusive independent partner model.</p></details>
+        <details><summary>Are there joining fees or upfront costs?</summary><p>No joining fees. Training and support are provided.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY / FORM -->
+  <section class="section" id="apply" aria-label="Application form">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:start;">
+        <div class="stack">
+          <div class="kicker">Apply</div>
+          <h2>Apply to Become an Independent Sales Partner</h2>
+          <p>
+            Submit your details and we’ll schedule a short qualification call.
+            This program is designed for both referral partners and active closers.
+          </p>
+
+          <div class="card card--flat" style="background: linear-gradient(135deg, rgba(14,165,164,.10), rgba(56,189,248,.10)); border: 1px solid rgba(11,27,58,.10);">
+            <h3>What you get</h3>
+            <ul class="list">
+              <li>10% lifetime commission on gross revenue</li>
+              <li>Commission increases with scope expansion</li>
+              <li>No earnings cap and no minimum client size</li>
+              <li>Free training, enablement, and internal support</li>
+            </ul>
+          </div>
+
+          <p class="muted">By submitting, you agree to be contacted about this independent contractor opportunity.</p>
+        </div>
+
+        <div class="card">
+          <form class="form-grid" action="#" method="post">
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="state">State</label>
+                <input id="state" name="state" type="text" autocomplete="address-level1" />
+              </div>
+              <div>
+                <label for="years">Years in Healthcare</label>
+                <select id="years" name="years" required>
+                  <option value="">Select…</option>
+                  <option>0–2</option>
+                  <option>3–5</option>
+                  <option>6–10</option>
+                  <option>10+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="providers">Work with medical providers?</label>
+                <select id="providers" name="providers" required>
+                  <option value="">Select…</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div>
+                <label for="network">Estimated provider network size</label>
+                <select id="network" name="network" required>
+                  <option value="">Select…</option>
+                  <option>1–10</option>
+                  <option>11–25</option>
+                  <option>26–50</option>
+                  <option>51–100</option>
+                  <option>100+</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="linkedin">LinkedIn (optional)</label>
+              <input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/..." />
+            </div>
+
+            <button class="btn" type="submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Schedule Qualification Call
+            </button>
+            <p class="muted">
+              Applications are reviewed on a rolling basis. We may prioritize candidates with healthcare decision-maker access.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer aria-label="Footer">
+    <div class="container footer-inner">
+      <div><strong style="color: var(--navy);">Sunknowledge</strong> — Independent Sales Partner Program</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+        <span aria-hidden="true">•</span>
+        <a href="#" aria-label="Independent Contractor Disclaimer">Independent Contractor Disclaimer</a>
+        <span aria-hidden="true">•</span>
+        <a href="mailto:contact@sunknowledge.com">contact@sunknowledge.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA (mobile) -->
+  <div class="sticky-cta" role="region" aria-label="Sticky call to action">
+    <div class="sticky-cta__inner">
+      <div style="font-weight:900; color: var(--navy);">Earn 10% lifetime commission</div>
+      <a class="btn" href="#apply" style="min-height:46px; padding: 10px 14px;">Apply</a>
+    </div>
+  </div>
+</body>
+</html>
